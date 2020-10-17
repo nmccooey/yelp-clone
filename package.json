@@ -1,0 +1,22 @@
+{
+  "name": "yelp-clone",
+  "version": "1.0.0",
+  "description": "Yelp clone.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmccooey/yelp-clone.git"
+  },
+  "author": "Nicholas McCooey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nmccooey/yelp-clone/issues"
+  },
+  "homepage": "https://github.com/nmccooey/yelp-clone#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
