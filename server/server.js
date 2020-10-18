@@ -10,15 +10,25 @@ dotenv.config();
 
 app.use(express.json());
 
-// ROUTES
-// Get all restaurants
+// ***** ROUTES *****
+
+// GET all restaurants
 app.get("/api/v1/restaurants", async (req, res) => {
-  const results = await db.query("SELECT * FROM restaurants");
-  console.log(results);
-  res.status(200).json({});
+  try {
+    const results = await db.query("SELECT * FROM restaurants");
+    res.status(200).json({
+      status: "success",
+      results: results.rows.length,
+      data: {
+        restaurants: results.rows,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
-// Get a restaurant
+// GET a restaurant
 app.get("/api/v1/restaurants/:id", (req, res) => {
   console.log(req.params);
 });
@@ -28,7 +38,7 @@ app.listen(PORT, () => {
   console.log(colors.green.inverse(`Listening on port ${PORT}`));
 });
 
-// Create a restaurant
+// INSERT a restaurant
 app.post("/api/v1/restaurants/", (req, res) => {
   console.log(req.body);
 });
@@ -38,7 +48,7 @@ app.put("/api/v1/restaurants/:id", (req, res) => {
   console.log(req.params.id);
 });
 
-// Delete Restaurant
+// DELETE a restaurant
 app.delete("/api/v1/restaurants/:id", (req, res) => {
   res.status(204).json({
     status: "Success",
