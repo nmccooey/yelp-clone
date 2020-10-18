@@ -20,7 +20,7 @@ app.get("/api/v1/restaurants", async (req, res) => {
       status: "success",
       results: results.rows.length,
       data: {
-        restaurants: results.rows,
+        restaurant: results.rows,
       },
     });
   } catch (error) {
@@ -36,9 +36,8 @@ app.get("/api/v1/restaurants/:id", async (req, res) => {
     ]);
     res.status(200).json({
       status: "success",
-      results: results.rows.length,
       data: {
-        restaurants: results.rows[0],
+        restaurant: results.rows[0],
       },
     });
   } catch (error) {
@@ -47,8 +46,19 @@ app.get("/api/v1/restaurants/:id", async (req, res) => {
 });
 
 // CREATE a restaurant
-app.post("/api/v1/restaurants/", (req, res) => {
-  console.log(req.body);
+app.post("/api/v1/restaurants/", async (req, res) => {
+  try {
+    const results = await db.query(
+      "INSERT INTO restaurants(name, location, price_range) VALUES ($1, $2, $3) returning *",
+      [req.body.name, req.body.location, req.body.price_range]
+    );
+    res.status(201).json({
+      status: "success",
+      data: {
+        restaurant: results.rows[0],
+      },
+    });
+  } catch (error) {}
 });
 
 // Update a restaurant
