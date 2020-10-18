@@ -80,9 +80,14 @@ app.put("/api/v1/restaurants/:id", (req, res) => {
 
 // DELETE a restaurant
 app.delete("/api/v1/restaurants/:id", (req, res) => {
-  res.status(204).json({
-    status: "Success",
-  });
+  try {
+    db.query("DELETE FROM restaurants where id = $1", [req.params.id]);
+    res.status(204).json({
+      status: "success",
+    });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 const PORT = process.env.PORT || 5000;
