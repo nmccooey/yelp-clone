@@ -29,16 +29,24 @@ app.get("/api/v1/restaurants", async (req, res) => {
 });
 
 // GET a restaurant
-app.get("/api/v1/restaurants/:id", (req, res) => {
-  console.log(req.params);
+app.get("/api/v1/restaurants/:id", async (req, res) => {
+  try {
+    const results = await db.query("SELECT * FROM restaurants WHERE id = $1", [
+      req.params.id,
+    ]);
+    res.status(200).json({
+      status: "success",
+      results: results.rows.length,
+      data: {
+        restaurants: results.rows[0],
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(colors.green.inverse(`Listening on port ${PORT}`));
-});
-
-// INSERT a restaurant
+// CREATE a restaurant
 app.post("/api/v1/restaurants/", (req, res) => {
   console.log(req.body);
 });
@@ -53,4 +61,9 @@ app.delete("/api/v1/restaurants/:id", (req, res) => {
   res.status(204).json({
     status: "Success",
   });
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(colors.green.inverse(`Listening on port ${PORT}`));
 });
