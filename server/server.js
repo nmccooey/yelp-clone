@@ -3,11 +3,13 @@ import dotenv from "dotenv";
 import colors from "colors";
 import morgan from "morgan";
 import db from "./db/index.js";
+import cors from "cors";
 
 const app = express();
 
 dotenv.config();
 
+app.use(cors());
 app.use(express.json());
 
 // ***** ROUTES *****
@@ -20,7 +22,7 @@ app.get("/api/v1/restaurants", async (req, res) => {
       status: "success",
       results: results.rows.length,
       data: {
-        restaurant: results.rows,
+        restaurants: results.rows,
       },
     });
   } catch (error) {
