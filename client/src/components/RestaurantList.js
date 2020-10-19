@@ -21,7 +21,7 @@ const RestaurantList = props => {
     <div className='list-group'>
       <table className='table table-hover table-borderless'>
         <thead>
-          <tr className='bg-primary'>
+          <tr className='yelp-theme'>
             <th scope='col'>Restaurant</th>
             <th scope='col'>Location</th>
             <th scope='col'>Price Range</th>
@@ -31,30 +31,25 @@ const RestaurantList = props => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>McDonalds</td>
-            <td>Wakefield, RI</td>
-            <td>$</td>
-            <td>Rating</td>
-            <td>
-              <button className='btn btn-warning'>Edit</button>
-            </td>
-            <td>
-              <button className='btn btn-danger'>Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>McDonalds</td>
-            <td>Wakefield, RI</td>
-            <td>$</td>
-            <td>Rating</td>
-            <td>
-              <button className='btn btn-warning'>Edit</button>
-            </td>
-            <td>
-              <button className='btn btn-danger'>Delete</button>
-            </td>
-          </tr>
+          {restaurants &&
+            restaurants.map(restaurant => {
+              return (
+                <tr key={restaurant.id}>
+                  <td>{restaurant.name}</td>
+                  <td>{restaurant.location}</td>
+                  <td>{"$".repeat(restaurant.price_range)}</td>
+                  <td>Reviews</td>
+                  <td>
+                    <button className='btn btn-dark'>Edit</button>
+                  </td>
+                  <td>
+                    <button className='btn btn-dark'>
+                      <i className='fas fa-trash-alt'></i>
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
     </div>

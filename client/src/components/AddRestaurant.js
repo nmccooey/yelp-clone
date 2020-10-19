@@ -24,7 +24,7 @@ const AddRestaurant = () => {
               <option vlaue='4'>$$$$</option>
             </select>
           </div>
-          <button className='btn btn-primary'>Add</button>
+          <button className='btn btn-dark'>Add</button>
         </div>
       </form>
     </div>

@@ -1,0 +1,13 @@
+.yelp-theme {
+  background-color: #d32423;
+  color: #fff;
+}
+
+.yelp-logo {
+  height: auto;
+  width: 15%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
