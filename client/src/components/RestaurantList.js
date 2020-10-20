@@ -40,6 +40,11 @@ const RestaurantList = props => {
     history.push(`/restaurants/${id}/edit`);
   };
 
+  // Restaurant select handler.
+  const handleRestaurantSelect = id => {
+    history.push(`/restaurants/${id}`);
+  };
+
   return (
     <div className='list-group'>
       <table className='table table-hover table-borderless'>
@@ -57,7 +62,11 @@ const RestaurantList = props => {
           {restaurants &&
             restaurants.map(restaurant => {
               return (
-                <tr key={restaurant.id}>
+                <tr
+                  onClick={() => handleRestaurantSelect(restaurant.id)}
+                  key={restaurant.id}
+                  className='restaurant-list-item'
+                >
                   <td>{restaurant.name}</td>
                   <td>{restaurant.location}</td>
                   <td>{"$".repeat(restaurant.price_range)}</td>

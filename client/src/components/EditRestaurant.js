@@ -58,13 +58,17 @@ const EditRestaurant = () => {
         </div>
         <div className='form-group'>
           <label htmlFor='price_range'>Price Range</label>
-          <input
+          <select
+            className='custom-select'
             value={priceRange}
-            onChange={e => setPriceRange(e.target.value)}
             id='price_range'
-            className='form-control'
-            type='number'
-          />
+            onChange={e => setPriceRange(e.target.value)}
+          >
+            <option value='1'>$</option>
+            <option value='2'>$$</option>
+            <option value='3'>$$$</option>
+            <option value='4'>$$$$</option>
+          </select>
         </div>
         <button
           onClick={() => {
