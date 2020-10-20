@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import RestaurantFinder from "../api/RestaurantFinder";
+import Header from "../components/Header";
 
 const Detail = () => {
   const { id } = useParams();
@@ -27,9 +28,10 @@ const Detail = () => {
     <div>
       {selectedRestaurant && (
         <>
-          <h3 className='text-center display-3'>
-            {selectedRestaurant.restaurant.name}
-          </h3>
+          <Header
+            text={selectedRestaurant.restaurant.name}
+            subText={"Restaurant Details"}
+          />
           <div className='text-center'>
             Star Rating
             <span className='text-warning ml-1'>

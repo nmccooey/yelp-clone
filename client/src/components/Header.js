@@ -1,13 +1,11 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ text, subText }) => {
   return (
     <div>
-      <h2 className='font-weight-light display-3 text-center'>Yelp Clone</h2>
+      <h1 className='font-weight-light display-4 text-center'>{text}</h1>
       <img className='yelp-logo' alt='yelp-logo' src='/images/yelp-logo.jpg' />
-      <h3 className='font-weight-light display-5 text-center'>
-        Restaurant Finder
-      </h3>
+      <h5 className='font-weight-light text-center'>{subText}</h5>
     </div>
   );
 };

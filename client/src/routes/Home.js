@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <>
       <div className='container'>
-        <Header />
+        <Header text={"Yelp Clone"} subText={"Restaurant Finder"} />
         <main>
           <AddRestaurant />
           <RestaurantList />
