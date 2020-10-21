@@ -56,7 +56,7 @@ const EditRestaurant = () => {
             type='text'
           />
         </div>
-        <div className='form-group'>
+        <div className='form-group mb-4'>
           <label htmlFor='price_range'>Price Range</label>
           <select
             className='custom-select'

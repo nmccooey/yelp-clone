@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { RestaurantsContext } from "../context/RestaurantsContext";
 import RestaurantFinder from "../api/RestaurantFinder";
 import Header from "../components/Header";
+import StarRating from "../components/StarRating";
 
 const Detail = () => {
   const { id } = useParams();
@@ -33,7 +34,7 @@ const Detail = () => {
             subText={"Restaurant Details"}
           />
           <div className='text-center'>
-            Star Rating
+            <StarRating rating={2.5} />
             <span className='text-warning ml-1'>
               {selectedRestaurant.restaurant.count
                 ? `(${selectedRestaurant.restaurant.count})`
