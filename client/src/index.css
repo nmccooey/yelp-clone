@@ -15,3 +15,13 @@
 .restaurant-list-item {
   cursor: pointer;
 }
+
+.card-header {
+  background-color: #d32423 !important;
+  color: #fff;
+}
+
+.card-body {
+  background-color: rgb(248, 247, 247);
+  color: black;
+}
