@@ -22,7 +22,6 @@ const Detail = () => {
         console.log(err);
       }
     };
-
     fetchData();
     // eslint-disable-next-line
   }, []);

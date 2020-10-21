@@ -22,7 +22,8 @@ const RestaurantList = props => {
   }, []);
 
   // Delete Handler
-  const handleDelete = async id => {
+  const handleDelete = async (e, id) => {
+    e.stopPropagation();
     try {
       await RestaurantFinder.delete(`/${id}`);
       setRestaurants(
@@ -30,8 +31,8 @@ const RestaurantList = props => {
           return restaurant.id !== id;
         })
       );
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      console.log(err);
     }
   };
 
@@ -52,7 +53,7 @@ const RestaurantList = props => {
     }
     return (
       <>
-        <StarRating rating={restaurant.id} />
+        <StarRating rating={restaurant.average_rating} />
         <span className='text-warning ml-1'>({restaurant.count})</span>
       </>
     );
@@ -95,7 +96,7 @@ const RestaurantList = props => {
                   <td>
                     <button
                       className='btn btn-dark'
-                      onClick={() => handleDelete(restaurant.id)}
+                      onClick={e => handleDelete(e, restaurant.id)}
                     >
                       <i className='fas fa-trash-alt'></i>
                     </button>
