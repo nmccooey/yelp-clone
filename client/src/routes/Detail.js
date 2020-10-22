@@ -29,7 +29,7 @@ const Detail = () => {
   return (
     <div>
       {selectedRestaurant && (
-        <div className='container'>
+        <div className='container mb-5'>
           <Header
             text={selectedRestaurant.restaurant.name}
             subText={"Reviews"}
@@ -42,9 +42,10 @@ const Detail = () => {
                 : "(0)"}
             </span>
           </div>
-          <div className='mt-4'>
+          <div className='mt-4 mb-4'>
             <Reviews reviews={selectedRestaurant.reviews} />
           </div>
+          <h3 className='mb-3'>Add a Review:</h3>
           <AddReview />
         </div>
       )}

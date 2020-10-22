@@ -65,6 +65,14 @@ const AddReview = () => {
           ></textarea>
         </div>
         <button
+          onClick={() => {
+            history.push("/");
+          }}
+          className='btn btn-danger mr-2'
+        >
+          Cancel
+        </button>
+        <button
           type='submit'
           onClick={handleSubmitReview}
           className='btn btn-dark'

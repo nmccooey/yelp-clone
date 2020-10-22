@@ -61,7 +61,7 @@ const RestaurantList = props => {
 
   return (
     <div className='list-group'>
-      <table className='table table-hover table-borderless'>
+      <table className='table table-hover table-dark table-borderless'>
         <thead>
           <tr className='yelp-theme'>
             <th scope='col'>Restaurant</th>
@@ -87,7 +87,7 @@ const RestaurantList = props => {
                   <td>{renderRating(restaurant)}</td>
                   <td>
                     <button
-                      className='btn btn-dark'
+                      className='btn btn-warning'
                       onClick={e => handleEdit(e, restaurant.id)}
                     >
                       Edit
@@ -95,7 +95,7 @@ const RestaurantList = props => {
                   </td>
                   <td>
                     <button
-                      className='btn btn-dark'
+                      className='btn btn-danger'
                       onClick={e => handleDelete(e, restaurant.id)}
                     >
                       <i className='fas fa-trash-alt'></i>
