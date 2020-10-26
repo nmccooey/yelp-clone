@@ -1,7 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
 import colors from "colors";
-import morgan from "morgan";
 import db from "./db/index.js";
 import cors from "cors";
 
@@ -119,6 +118,7 @@ app.post("/api/v1/restaurants/:id/addReview", async (req, res) => {
   }
 });
 
+// eslint-disable-next-line no-undef
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(colors.green.inverse(`Listening on port ${PORT}`));
